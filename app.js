@@ -5,16 +5,22 @@ var app = express()
 
 var router = express.Router()
 
-var username = ''
-var pass = ''
 var url = 'http://129.241.124.32:80/LaundryState'
 
 router.get('/api', function (req, res) {
   console.log("Got a new request")
+
+  var user = req.param('user')
+  var password = req.param('pass')
+
+  if (user === '' || password === '') {
+    res.send("Username or password not entered")
+  }
+
   request.get(url, {
     'auth' : {
-      'user' : username,
-      'pass' : pass,
+      'user' : user,
+      'pass' : password,
       'sendImmediatly' : true
     }
   } ,function(err, response, html) {
