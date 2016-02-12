@@ -7,7 +7,7 @@ var router = express.Router()
 
 var url = 'http://129.241.124.32:80/LaundryState'
 
-router.get('/api', function (req, res) {
+router.get('/washingapi', function (req, res) {
   console.log("Got a new request")
 
   var user = req.param('user')
