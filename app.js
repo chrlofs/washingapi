@@ -14,7 +14,9 @@ router.get('/washingapi', apicache('3 minutes'), function (req, res) {
   var user = req.param('user')
   var password = req.param('pass')
 
-  if (user == '' || password == '') {
+  console.log(user)
+
+  if (user == undefined || password == undefined) {
     res.json({error: "Username or password not entered"})
   }
 
