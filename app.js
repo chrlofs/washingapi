@@ -1,14 +1,14 @@
 var express = require('express')
 var request = require('request')
 var cheerio = require('cheerio')
-var apicache = require('apicache').options({debug:true}).middleware
+var apicache = require('apicache').options({debug:false}).middleware
 var app = express()
 
 var router = express.Router()
 
 var url = 'http://129.241.124.32:80/LaundryState'
 
-router.get('/washingapi', apicache('5 minutes'), function (req, res) {
+router.get('/washingapi', apicache('3 minutes'), function (req, res) {
   console.log("Got a new request")
 
   var user = req.param('user')
